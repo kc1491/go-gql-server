@@ -1,0 +1,29 @@
+# go-gql-server gql-gen.yml files
+# Refer to https:://gqlgen.com/config/
+# for detailed .gqlgen.yml documentation.
+#
+# Where are all the schema files located? globs are supported eg  src/**/*.graphqls
+schema:
+  - internal/gql/schemas/schema.graphql
+
+# Let gqlgen know where to put the generated server
+# Where should the generated server code go?
+exec:
+  filename: internal/gql/generated.go
+  package: gql
+
+# Let gqlgen know where to put the generated models (if any)
+# Where should any generated models go?
+model:
+  filename: internal/gql/models/generated.go
+  package: models
+
+# Let gqlgen know where to put the generated resolvers
+# Where should the resolver implementations go?
+resolver:
+        #filename: internal/gql/resolvers/generated/resolver.go
+  filename: internal/gql/resolvers/generated.go
+  type: Resolver
+  package: resolvers
+
+autobind: []

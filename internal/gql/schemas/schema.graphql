@@ -1,0 +1,23 @@
+# Types
+type User { 
+	id: ID
+	email: String
+	userID: String
+}
+
+# Input Types
+input UserInput {
+	email: String
+	userId: String
+}
+
+#Define Mutation {
+	createUser(input: UserInput!): User!
+	updateUser(input: UserInput!): User!
+	deleteUser(userId: ID!): Boolean!
+}
+
+#Define queries here
+type Query {
+	users(userId: ID): [User]
+}
