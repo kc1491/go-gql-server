@@ -36,7 +36,7 @@ func (r *mutationResolver) DeleteUser(ctx context.Context, userID string) (bool,
 
 type queryResolver struct { *Resolver }
 
-func (r *queryResolver) Users(ctx context.Context, userId *string) ([]*moodels.User, error) {
+func (r *queryResolver) Users(ctx context.Context, userId *string) ([]*models.User, error) {
 	records := []*models.User{
 		&models.User{
 		ID:     "ec17af15-e354-440c-a09f-69715fc8b595",

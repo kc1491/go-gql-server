@@ -3,7 +3,6 @@ package server
 import (
 	"log"
 
-	"github.com/gin-gonic/gin"
 	"github.com/kc1491/go-gql-server/internal/handlers"
 	"github.com/kc1491/go-gql-server/pkg/utils"
 	"github.com/gin-gonic/gin"
@@ -34,10 +33,10 @@ func Run() {
 	// Playground handler
 
 	if isPgEnabled {
-		r.GET(gqlPgPath, handler.PlaygroundHandler(gqlPath))
+		r.GET(gqlPgPath, handlers.PlaygroundHandler(gqlPath))
 		log.Println("GraphQL PlaygroundHandler @ " + endpoint + gqlPgPath)
 	}
-	r.Post(gqlPath, handlers.GraphqlHandler())
+	r.POST(gqlPath, handlers.GraphqlHandler())
 	log.Println("GraphQL @ " + endpoint + gqlPath)
 
 	// Run the server

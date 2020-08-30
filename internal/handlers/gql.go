@@ -8,16 +8,16 @@ import (
 )
 
 // GraphqlHandler defines the GQLGen GraphQL server handler
-func GraphqlHandler() gin.HandleFunc {
+func GraphqlHandler() gin.HandlerFunc {
 	// New ExecutableSchema and Config are in the generated.go file
 
 	c := gql.Config{
 		Resolvers: &resolvers.Resolver{},
 	}
 
-	h := handler.GraphQL(gql.NewExecutableSchena(c))
+	h := handler.GraphQL(gql.NewExecutableSchema(c))
 
-	return func(C* gin.Context) {
+	return func(c *gin.Context) {
 		h.ServeHTTP(c.Writer, c.Request)
 	}
 }
@@ -27,6 +27,6 @@ func GraphqlHandler() gin.HandleFunc {
 func PlaygroundHandler(path string) gin.HandlerFunc {
 	h := handler.Playground("Go GraphQL server.", path)
 	return func(c *gin.Context) {
-		h.ServeHTTP(c.Writer, C.Request)
+		h.ServeHTTP(c.Writer, c.Request)
 	}
 }

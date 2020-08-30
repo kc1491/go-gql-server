@@ -1,8 +1,8 @@
 # Types
 type User { 
-	id: ID
-	email: String
-	userID: String
+	id: ID!
+	email: String!
+	userID: String!
 }
 
 # Input Types
@@ -11,7 +11,8 @@ input UserInput {
 	userId: String
 }
 
-#Define Mutation {
+#Define mutations here 
+type Mutation {
 	createUser(input: UserInput!): User!
 	updateUser(input: UserInput!): User!
 	deleteUser(userId: ID!): Boolean!
